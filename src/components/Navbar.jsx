@@ -23,8 +23,8 @@ function Navbar() {
         </div>
         <div className={menuOpen ? "open" : ""}>
           <NavLink className="navItem"  to="/" onClick= {handleLink}>Home</NavLink> 
-          <NavLink className="navItem" to="/movies" onClick= {handleLink}>Movies</NavLink>
-          <NavLink className="navItem" to="/series" onClick= {handleLink}>TV Series</NavLink>
+          <NavLink className="navItem" to="/movies" onClick= {handleLink}>Movies &#x2315;  </NavLink>
+          <NavLink className="navItem" to="/series" onClick= {handleLink}>TV Series &#x2315;</NavLink>
           <NavLink className="navItem" to="/comingsoon" onClick= {handleLink}>Coming Soon</NavLink>
         </div>
     </nav> 

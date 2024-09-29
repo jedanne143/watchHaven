@@ -1,43 +1,28 @@
-import React, { useState, useEffect } from 'react'
-const API_KEY = import.meta.env.VITE_API_KEY
+import React, { useContext, useState} from 'react'
+import {FetchContext} from '../components/FetchContext'
 import './HomePage.css'
-import axios from 'axios'
 import CardMovie from '../components/CardMovie'
 import CardTV from '../components/CardTV'
 
 function HomePage() {
-  const [popMovies, setPopMovies] = useState([])
-  const [popSeries, setPopSeries] = useState([])
-  // for fetching popular movies
-  const getPopMovies = async() => {
-    try{
-      const res = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-      const data = res.data
-      setPopMovies(data.results)
-    } catch (error){
-      console.log("Error fetching Movie data from API")
-      console.error(error)
-    }
+  // Get data from context
+  const { popMovies, popSeries, loading } = useContext(FetchContext); 
+  //handle loading state
+  if (loading) {
+    return <div>Loading...</div>; 
   }
-  //for fetching popular TV series
-  const getPopSeries = async() => {
-    try{
-      const res = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`)
-      const data = res.data
-      setPopSeries(data.results)
-      console.log(data.results)
-    } catch (error){
-      console.log("Error fetching TV Series data from API")
-      console.error(error)
-    }
-  }
+  //handle clicked movies
+  const [isMovie, setIsMovie] = useState(false);
+  // holds the info of clicked movie
+  const [clickedMovie , setClickedMovie] = useState('');
 
+  // const handleClickedMovie = () => {
+  //   return(
 
-  useEffect( () => {
-    getPopMovies();
-    getPopSeries();
-    console.log("fetched data")
-  } , [])
+  //   )
+  // }
+  //handle clicked series
+
   return (
     <main className="homepageContainer">
       <div className="subContainer">
@@ -46,8 +31,10 @@ function HomePage() {
           {/*shows each movie card */}
           {popMovies.map( (popMovie) => {
             return (
-              <li className="card" key= {popMovie.id}>
-                <CardMovie movie= {popMovie} />
+              <li className="card" key= {popMovie.id} onClick= {()=>{setIsMovie(true);
+                setClickedMovie(popMovie)
+              }}>
+                <CardMovie movie= {popMovie} clickedMovie = {clickedMovie}/>
               </li>
             )
           } )}

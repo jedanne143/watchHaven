@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card({movie}) {
+function Card({movie,  clickedMovie}) {
   return (
     <>
         {/* shows the poster */}
@@ -13,7 +13,13 @@ function Card({movie}) {
         <div>{movie.title}
         {/* shows the year*/}
         <span>- {movie.release_date.split('-')[0]}</span>
-        </div>      
+        </div>  
+
+        {/* if ({isMovie}){
+          return(
+
+          )
+        }     */}
     </>
   )
 }

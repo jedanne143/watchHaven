@@ -33,7 +33,7 @@
     justify-content: center;
 }
 .card{
-    width: 100px;
+    width: 120px;
     height:200px;
     list-style: none;
     border:1px solid rgba(255, 217, 0, 0.736);
@@ -44,7 +44,6 @@
     text-align: center;
     box-shadow: 3px 3px 7px gold;
     transition: transform 0.2s
-
 }
 .card:hover{
     transform: scale(1.1)
