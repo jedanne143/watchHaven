@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState, useRef} from 'react'
 import {FetchContext} from '../components/FetchContext'
 import './HomePage.css'
 import CardMovie from '../components/CardMovie'
@@ -14,16 +14,18 @@ function HomePage() {
   //handle clicked movies
   const [isMovie, setIsMovie] = useState(false);
   // holds the info of clicked movie
-  const [clickedMovie , setClickedMovie] = useState('');
+  const [clickedMovie , setClickedMovie] = useState(null);
 
-  // const handleClickedMovie = () => {
-  //   return(
-
-  //   )
-  // }
-  //handle clicked series
+  const containerRef = useRef(null)
+  //to clear contents when close button is clicked
+  const clearContent = () => {
+    if (containerRef.current){
+      setIsMovie(false)
+    }
+  }
 
   return (
+
     <main className="homepageContainer">
       <div className="subContainer">
         <div className="headline">Popular Movies</div>
@@ -31,10 +33,14 @@ function HomePage() {
           {/*shows each movie card */}
           {popMovies.map( (popMovie) => {
             return (
-              <li className="card" key= {popMovie.id} onClick= {()=>{setIsMovie(true);
+              <li className="card" 
+              key= {popMovie.id} 
+              onClick= {()=>{
+                setIsMovie(true);
+                //Store the data of clicked movie
                 setClickedMovie(popMovie)
               }}>
-                <CardMovie movie= {popMovie} clickedMovie = {clickedMovie}/>
+                <CardMovie movie= {popMovie}/>
               </li>
             )
           } )}
@@ -56,6 +62,20 @@ function HomePage() {
 
         </ul>
       </div>
+
+      {/* Conditionally render clicked movie details */}
+      {isMovie && clickedMovie && (
+        <div className="clickedContainer" ref={containerRef}>
+          <img src={`https://image.tmdb.org/t/p/w500${clickedMovie.poster_path}`} alt={clickedMovie.title} />
+          <div className="rightContainer">
+            <button className="closeBtn" onClick={clearContent}>x</button>
+            <div className="clickedInfo">Title: <span> {clickedMovie.title} </span></div>
+            <div className="clickedInfo">Release Date: <span>{clickedMovie.release_date}</span></div>
+            <div className="clickedInfo">Average vote: <span>{clickedMovie.vote_average}</span></div>
+            <div className="clickedInfo">Overview: <span>{clickedMovie.overview}</span></div>
+          </div>
+        </div>
+      )}
     
     </main>
     
