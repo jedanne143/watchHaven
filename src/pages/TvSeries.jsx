@@ -57,23 +57,22 @@ function TvSeries() {
     <main className="seriesContainer">
       <h1>Search TV Series</h1>
       <Searchbar className="searchbar" searchValue= {searchValue} setSearchValue={setSearchValue} />
-      <div className="subContainer">
-        {/* Show selected series details */}
-        {clickedSeries && (
-          <div className="clickedInfo">
+          {/* Show selected series details */}
+          {clickedSeries && (
+          <div className="clickedContainer">
             <img src={`https://image.tmdb.org/t/p/w500${clickedSeries.poster_path}`} 
               alt={clickedSeries.title} />
-            <div className='right'>
+            <div className='rightContainer'>
             <h2>{clickedSeries.name}</h2>
-            <p>Tagline: <span>{clickedSeries.tagline}</span></p>
-            <p>Number of Seasons: <span>{clickedSeries.number_of_seasons}</span></p>
-            <p>Number of Episodes: <span>{clickedSeries.number_of_episodes}</span></p>
-            <p>Overview: <span>{clickedSeries.overview}</span></p>
-            <p>Country: <span>{clickedSeries.origin_country} </span></p>
-            <p>Average Vote: <span>{clickedSeries.vote_average}</span></p>
+            <p className="clickedInfo">Number of Seasons: <span>{clickedSeries.number_of_seasons}</span></p>
+            <p className="clickedInfo">Number of Episodes: <span>{clickedSeries.number_of_episodes}</span></p>
+            <p className="clickedInfo">Overview: <span>{clickedSeries.overview}</span></p>
+            <p className="clickedInfo">Country: <span>{clickedSeries.origin_country} </span></p>
             </div>
           </div>
         )}
+
+      <div className="subContainer">
 
         <ul className="cardContainer">
           {/*shows each series card */}

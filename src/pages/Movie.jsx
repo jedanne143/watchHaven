@@ -56,22 +56,21 @@ function Movie() {
     <main className="movieContainer">
       <h1>Search Movies</h1>
       <Searchbar className="searchbar" searchValue= {searchValue} setSearchValue={setSearchValue} />
-      <div className="subContainer">
-        {/* Show selected movie details */}
-        {clickedMovie && (
-          <div className="clickedInfo">
-            <img src={`https://image.tmdb.org/t/p/w500${clickedMovie.poster_path}`} 
-              alt={clickedMovie.title} />
-            <div className='right'>
-            <h2>{clickedMovie.title}</h2>
-            <p>Tagline: <span>{clickedMovie.tagline}</span></p>
-            <p>Release date: <span>{clickedMovie.release_date}</span></p>
-            <p>Overview: <span>{clickedMovie.overview}</span></p>
-            <p>Average Vote: <span>{clickedMovie.vote_average}</span></p>
-            </div>
-          </div>
+      {/* Show selected movie details */}
+      {clickedMovie && (
+      <div className="clickedContainer">
+        <img src={`https://image.tmdb.org/t/p/w500${clickedMovie.poster_path}`} 
+          alt={clickedMovie.title} />
+        <div className='rightContainer'>
+        <h2>{clickedMovie.title}</h2>
+        <p className="clickedInfo">Tagline: <span>{clickedMovie.tagline}</span></p>
+        <p className="clickedInfo">Release date: <span>{clickedMovie.release_date}</span></p>
+        <p className="clickedInfo">Overview: <span>{clickedMovie.overview}</span></p>
+        <p className="clickedInfo">Average Vote: <span>{clickedMovie.vote_average}</span></p>
+        </div>
+      </div>
         )}
-
+      <div className="subContainer">
         <ul className="cardContainer">
           {/*shows each movie card */}
           {movies.map( (movie) => {
