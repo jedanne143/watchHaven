@@ -1,10 +1,11 @@
 import React, {useRef} from 'react'
+import "./CardMovie.css"
 
-function Card({movie}) {
+function CardMovie({movie}) {
 
  
   return (
-    <>
+    <div className="cardC">
         {/* shows the poster */}
         <img 
         className="cardImage" 
@@ -18,8 +19,8 @@ function Card({movie}) {
         </div>  
 
  
-    </>
+    </div>
   )
 }
 
-export default Card
+export default CardMovie

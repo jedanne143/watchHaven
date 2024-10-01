@@ -4,9 +4,9 @@ const API_KEY = import.meta.env.VITE_API_KEY
 export const FetchContext =createContext();
 
 const FetchProvider = ({children}) => {
-  // const API_KEY = import.meta.env.VITE_API_KEY
   const [popMovies, setPopMovies] = useState([]);
   const [popSeries, setPopSeries] = useState([]);
+
   // Loading state while fetching data
   const [loading, setLoading] = useState(true); 
   // Fetch popular movies
@@ -27,6 +27,8 @@ const FetchProvider = ({children}) => {
       console.error("Error fetching TV Series data from API", error);
     }
   };
+
+
   // Fetch data on initial render 
   useEffect(() => {
     const fetchData = async () => {

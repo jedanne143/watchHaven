@@ -25,7 +25,7 @@ function Navbar() {
           <NavLink className="navItem"  to="/" onClick= {handleLink}>Home</NavLink> 
           <NavLink className="navItem" to="/movies" onClick= {handleLink}>&#x2315; Movies </NavLink>
           <NavLink className="navItem" to="/series" onClick= {handleLink}>&#x2315; TV Series </NavLink>
-          <NavLink className="navItem" to="/comingsoon" onClick= {handleLink}>Coming Soon</NavLink>
+          {/* <NavLink className="navItem" to="/comingsoon" onClick= {handleLink}>Coming Soon</NavLink> */}
         </div>
     </nav> 
   )
