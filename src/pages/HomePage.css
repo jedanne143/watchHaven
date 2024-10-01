@@ -7,45 +7,34 @@
     align-items: center;
     background-color: black;
     color:white;
+    box-sizing:border-box;
 }
 .subContainer{
     display:flex;
-    flex-grow: 1;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    width:100%;
+    width:90%;
     justify-content: center;
-}
-.subContainerTV{
-    display:flex;
-    flex-grow: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width:100%;
-    justify-content: center;
-    position:relative;
-}
-.clickedContainerTV{
-    position:absolute;
-    left:200px
-
-
-}
-.headline{
-    color:white;
-    font-weight: bold;
-    font-size:20px;
-    width:100%;
     box-sizing: border-box;
-    margin: 10px
+    padding:5px;
 }
+
+.heading{
+    font-size: 30px;
+    text-align:center;
+    font-weight:bold;
+    color:gold;
+    box-sizing: border-box;
+    padding:5px;
+    width:90%;
+  
+ }
 .cardContainer{
     display:flex;
-    flex-wrap: wrap;
+    flex-direction:row;
+    flex-wrap:wrap;
     width:100%;
-    height:auto;
-    align-items:center;
-    justify-content: center;
+    height: auto;
 }
 .card{
     width: 120px;
@@ -72,28 +61,33 @@
 .clickedContainer{
     display:flex;
     flex-direction: row;
-    width: 650px;
-    min-width:310px;
-    height:400px;
-    position:absolute;
-    z-index:100;
-    justify-content:center;
-    align-items:center;
-    background: black;
-    margin-top:50px;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width:900px;
+    height:500px;
+    margin:auto;
+    /* background: black; */
+    /* margin-top:50px; */
     border-radius: 20px;
     border: 1px solid gold;
     box-shadow: 2px 2px 50px gold;
     box-sizing: border-box;
+    
+
 }
+
 .clickedContainer img{
-    width:300px;
+    display:flex;
+    width:290px;
     height:400px;
     border-radius:20px;
+    padding:5px;
 
 }
 .clickedContainer button{
     position: absolute;
+    z-index:100;
     right: 15px;
     top:15px;
     width: 30px;
@@ -112,39 +106,31 @@
     border: 1px solid gray;
     box-shadow: 2px 2px 20px gray;
 
+
 }
 .rightContainer{
     display: flex;
+    width:400px;
     flex-direction: column;
-    width:300px;
-    padding: 20px;
-    align-items:flex-start;
-    min-height:400px;
-    /* height:60vh; */
-    box-sizing:border-box;
-    flex-wrap:wrap
-  
-
+    height:400px;
+    position:relative;
+    align-items: flex-start;
+    padding:20px;
+    text-align:left
 }
 .clickedInfo{
-    display:flex;
+    display: block;
     color:gold;
     text-align:left;
-    margin:2px
+    padding:5px;
+    margin:2px;
+    width:100%;
+    box-sizing: border-box;
+
 }
 .clickedInfo span{
     color:white;
     font-size: 17px;
     margin-left: 10px
 }
-.clickedOverview{
-    width:280px;
-    height:150px;
-    overflow:hidden;
-}
 
-@media (max-width: 700px){
-    .clickedContainer {
-        flex-direction: column
-    }
-}

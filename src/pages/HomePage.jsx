@@ -40,6 +40,7 @@ function HomePage() {
 
     <main className="homepageContainer">
       <div className="subContainer">
+        <div className="heading">Popular Movies</div>
             {/* Conditionally render clicked movie details */}
             {isMovie && clickedMovie && (
             <div className="clickedContainer" ref={containerRef}>
@@ -47,14 +48,15 @@ function HomePage() {
               <div className="rightContainer">
                 <button className="closeBtn" onClick={clearContent}>x</button>
                 <div className="clickedInfo">Title: <span> {clickedMovie.title} </span></div>
+                <div className="clickedInfo">Overview: <span>{clickedMovie.overview}</span></div>
                 <div className="clickedInfo">Release Date: <span>{clickedMovie.release_date}</span></div>
                 <div className="clickedInfo">Average vote: <span>{clickedMovie.vote_average}</span></div>
-                <div className="clickedOverview">Overview: <span>{clickedMovie.overview}</span></div>
+
               </div>
             </div>
           )}
-        <div className="headline">Popular Movies</div>
         <ul className="cardContainer">
+
           {/*shows each movie card */}
           {popMovies.map( (popMovie) => {
             return (
@@ -73,19 +75,20 @@ function HomePage() {
         </ul>
       </div>
 
-      <div className="subContainerTV">
-        <div className="headline">Popular Series</div>
+      <div className="subContainer">
+        <div className="heading">Popular Series</div>
         {/* Conditionally render clicked TV Series details */}
         {isSeries && clickedSeries && (
-        <div className="clickedContainerTV clickedContainer" ref={containerSeriesRef}>
+        <div className="clickedContainer" ref={containerSeriesRef}>
           <img src={`https://image.tmdb.org/t/p/w500${clickedSeries.poster_path}`} alt={clickedSeries.name} />
           <div className="rightContainer">
             <button className="closeBtn" onClick={clearContentSeries}>x</button>
             <div className="clickedInfo">Title: <span> {clickedSeries.name} </span></div>
+            <div className="clickedInfo">Overview: <span>{clickedSeries.overview}</span></div>
             <div className="clickedInfo">Country: <span> {clickedSeries.origin_country} </span></div>
             <div className="clickedInfo">Release Date: <span>{clickedSeries.first_air_date}</span></div>
             <div className="clickedInfo">Average vote: <span>{clickedSeries.vote_average}</span></div>
-            <div className="clickedOverview">Overview: <span>{clickedSeries.overview}</span></div>
+         
           </div>
         </div>
       )}

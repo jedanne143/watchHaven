@@ -54,6 +54,7 @@ function Movie() {
 
   return (
     <main className="movieContainer">
+      <h1>Search Movies</h1>
       <Searchbar className="searchbar" searchValue= {searchValue} setSearchValue={setSearchValue} />
       <div className="subContainer">
         {/* Show selected movie details */}
@@ -63,10 +64,10 @@ function Movie() {
               alt={clickedMovie.title} />
             <div className='right'>
             <h2>{clickedMovie.title}</h2>
-            <p>Tagline: {clickedMovie.tagline}</p>
-            <p>Release date: {clickedMovie.release_date}</p>
-            <p>Overview: {clickedMovie.overview}</p>
-            <p>Average Vote: {clickedMovie.vote_average}</p>
+            <p>Tagline: <span>{clickedMovie.tagline}</span></p>
+            <p>Release date: <span>{clickedMovie.release_date}</span></p>
+            <p>Overview: <span>{clickedMovie.overview}</span></p>
+            <p>Average Vote: <span>{clickedMovie.vote_average}</span></p>
             </div>
           </div>
         )}

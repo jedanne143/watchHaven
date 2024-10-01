@@ -48,7 +48,6 @@ div:nth-of-type(2){
     font-size: 20px;
     color: gold;
     box-sizing: border-box;
-    text-transform: uppercase;
 }
 nav .hamburgerIcon{
     display:none;

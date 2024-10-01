@@ -1,4 +1,4 @@
-.movieContainer{
+.seriesContainer{
     display:flex;
     flex-direction:column;
     width: 100%;
@@ -26,7 +26,7 @@
     background-color: black;
     width:100%;
     justify-content: center;
-    opacity: 0.8
+    opacity: 0.9
 }
 .right{
     min-width:300px;
